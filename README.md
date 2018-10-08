@@ -11,29 +11,26 @@
 ## Decisiones del desarrollo.
 
 **1. El software ha sido desarrollado mediante el framework de Spring utilizando un proyecto de tipo Spring-boot.**
-    - He decidido utilizar Spring-boot ya que facilita las tareas de importar dependencias a la aplicación y el despliegue de la misma. Como he decidido realizar una API, esta forma era la más sencilla para mi.
+>He decidido utilizar Spring-boot ya que facilita las tareas de importar dependencias a la aplicación y el despliegue de la misma. Como he decidido realizar una API, esta forma era la más sencilla para mi.
    
 **2. Se ha utilizado una base de datos en memoria (h2).**
-  
-    - Los datos por defecto serán cargados mediante un CommandLineRunner para que se carguen al inicio de la aplicación.
+>Los datos por defecto serán cargados mediante un CommandLineRunner para que se carguen al inicio de la aplicación.
 
 **3. La arquitectura empleada es la siguiente:**
-  
-    -Modelo: Contendrá los objetos que se usarán en la aplicación, en este caso Anuncios. También se ha añadido un DAO para los anuncios de los usuarios, ya que contendran menos información y habrá que mapearlos.
-      
-    -Repositorio: Se ha utilizado JPA repository para la persistencia, la cual se llevará a cabo en H2. Se inicializarán por defecto una serie de valores requeridos para que cuando la aplicacion inicie contenga estos datos.
-      
-    -Servicio: Contendrá la lógica de la aplicación, que en este caso será puntuar los anuncios y devolver los anuncios correspondientes a cada usuario.
-      
-    -Controlador: Se encargará de proveer los endpoints.
+>-Modelo: Contendrá los objetos que se usarán en la aplicación, en este caso Anuncios. También se ha añadido un DAO para los anuncios de los usuarios, ya que contendran menos información y habrá que mapearlos.
+
+>-Repositorio: Se ha utilizado JPA repository para la persistencia, la cual se llevará a cabo en H2. Se inicializarán por defecto una serie de valores requeridos para que cuando la aplicacion inicie contenga estos datos.
+
+>-Servicio: Contendrá la lógica de la aplicación, que en este caso será puntuar los anuncios y devolver los anuncios correspondientes a cada usuario.
+
+>-Controlador: Se encargará de proveer los endpoints.
       
 **4. La aplicación contará con los 3 Endpoints solicitados que deberán ejecutarse de la siguiente forma.**
   
-    1. Ejecutar el endpoint de Puntuación para puntuar a los pisos.
+>Ejecutar el endpoint de Puntuación para puntuar a los pisos.
       
-    2. Ejecutar el endpoint de calidad o bien de usuario.
-      
-        **En el caso de ejecutar primero el endpoint de calidad, todos los pisos por defecto tendrán la puntuación de 0, ya que la puntuación se calcula en el endpoint de puntuación**
+>Ejecutar el endpoint de calidad o bien de usuario.
+>**En el caso de ejecutar primero el endpoint de calidad, todos los pisos por defecto tendrán la puntuación de 0, ya que la puntuación se calcula en el endpoint de puntuación**
      
 
 ## Instrucciones de ejecución.
