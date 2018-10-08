@@ -11,7 +11,6 @@
 ## Decisiones del desarrollo.
 
 **1. El software ha sido desarrollado mediante el framework de Spring utilizando un proyecto de tipo Spring-boot.**
-  
     - He decidido utilizar Spring-boot ya que facilita las tareas de importar dependencias a la aplicación y el despliegue de la misma. Como he decidido realizar una API, esta forma era la más sencilla para mi.
    
 **2. Se ha utilizado una base de datos en memoria (h2).**
@@ -51,8 +50,8 @@
 La API contará con las siguientes funciones.
 *Nota* Posibles valores de mapType = 3x3 5x5 7x7 o 9x9.
 
-|Funcion| Ruta | Tipo |Parametros | Descripción |
-|---|---|---|---|---|---|
+|Funcion| Ruta | Tipo | Descripción |
+|---|---|---|---|
 | Calidad | `http://localhost:8093/quality`| `GET` |La función devolverá los pisos asociados al departamente de calidad. Podrá ver los anuncios irrelevantes|
 | Puntuacion | `http://localhost:8093/puntuation`| `POST` |La función calculará los puntos de los pisos y los devolverá en el Body para poder visualizarlos.|
 | Usuario | `http://localhost:8093/user`| `GET` |La función devolverá los pisos asociados a los usuarios. Podrán ver los anuncios con puntuación superior a 40 y ordenados de mejor a peor|
