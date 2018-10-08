@@ -40,12 +40,11 @@
 3. Realizar un mvn clean install si el proyecto tiene errores. 
 4. Ejecutar la clase PisosExampleApplication mediante "Run as Spring Boot App". 
 5. La aplicación se ejecutará en el puerto 8093 por defecto.
-6. Importar la colección de POSTMAN "Anuncios.postman_collection" la cual se incluye en la raiz del proyecto. En caso de que no se quiera usar este software a continuación se desarrollarán los endpoints y funciones.
+6. Importar la colección de POSTMAN "Anuncios.postman_collection" la cual se incluye en la raiz del proyecto. En caso de que no se quiera usar este software, a continuación se desarrollarán los endpoints y funciones.
 
 ## Instrucciones de utilización.
 
 La API contará con las siguientes funciones.
-*Nota* Posibles valores de mapType = 3x3 5x5 7x7 o 9x9.
 
 |Funcion| Ruta | Tipo | Descripción |
 |---|---|---|---|
