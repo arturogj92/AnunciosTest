@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.adevgar.pisos.model.Advert;
@@ -22,16 +23,16 @@ public class AdvertController {
 
 	@GetMapping("/quality")
 	public ResponseEntity<?> getPiso() {
-		List<Advert> pisos = advertService.findAll();
+		List<Advert> adverts = advertService.findIrrelevant();
 
-		if (pisos.isEmpty()) {
+		if (adverts.isEmpty()) {
 			return new ResponseEntity<>("There is no announcements yet", HttpStatus.NOT_FOUND);
 		}
 
-		return new ResponseEntity<>(pisos, HttpStatus.OK);
+		return new ResponseEntity<>(adverts, HttpStatus.OK);
 	}
 
-	@GetMapping("/puntuation")
+	@PostMapping("/puntuation")
 	public ResponseEntity<?> getPuntuations() {
 
 		List<Advert> adverts = advertService.findAll();

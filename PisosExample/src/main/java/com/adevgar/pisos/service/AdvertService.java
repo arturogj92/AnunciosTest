@@ -8,8 +8,11 @@ import com.adevgar.pisos.model.DAO.AdvertUserDAO;
 public interface AdvertService {
 
 	public List<Advert> findAll();
+	public List<Advert> findIrrelevant();
 	public List<AdvertUserDAO> getRelevantAndPuntuatedAdverts();
 	public List<Advert> setAdvertPuntuation(List<Advert> advertList);
 	public List<AdvertUserDAO> getRelevantAdverts(List<Advert> advertList);
 	public void defaultValues();
+	
+
 }

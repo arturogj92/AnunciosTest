@@ -33,6 +33,26 @@ public class AdvertServiceImpl implements AdvertService {
 		return null;
 
 	}
+	
+	@Override
+	public List<Advert> findIrrelevant(){
+		
+		List<Advert> advertList = advertJpaRepository.findAll();
+		List<Advert> auxList = new ArrayList<Advert>();
+		
+		
+		advertList.sort(Comparator.comparing(Advert::getPoints).reversed());
+
+		for (Advert p : advertList) {
+
+			if (p.getPoints() < 40 ) {
+				auxList.add(p);
+			}
+
+		}
+
+		return auxList;
+	}
 
 	@Override
 	public List<AdvertUserDAO> getRelevantAndPuntuatedAdverts() {
