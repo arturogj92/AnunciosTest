@@ -19,8 +19,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AdvertServiceImpl implements AdvertService {
 
+	public static final int IRRELEVANT_POINTS = 40;
+	public static final int IMAGE_POINTS = 50;
+	public static final int SPECIAL_WORD_POINTS = 5;
+	public static final int DESCRIPTION_POINTS = 30;
+	
+	
 	AdvertJpaRepository advertJpaRepository;
-
+	
+	
 	@Override
 	public List<Advert> findAll() {
 
@@ -45,7 +52,7 @@ public class AdvertServiceImpl implements AdvertService {
 
 		for (Advert p : advertList) {
 
-			if (p.getPoints() < 40 ) {
+			if (p.getPoints() < IRRELEVANT_POINTS ) {
 				auxList.add(p);
 			}
 
@@ -74,7 +81,7 @@ public class AdvertServiceImpl implements AdvertService {
 			int puntuation = 0;
 
 			if (!p.getDescription().isEmpty()) {
-				puntuation += 30;
+				puntuation += DESCRIPTION_POINTS;
 
 				for (String w : specialWords) {
 
@@ -83,14 +90,14 @@ public class AdvertServiceImpl implements AdvertService {
 					;
 
 					if (description.toLowerCase().contains(w)) {
-						puntuation += 5;
+						puntuation += SPECIAL_WORD_POINTS;
 					}
 				}
 
 			}
 
 			if (p.getImages().size() > 0) {
-				puntuation += 50;
+				puntuation += IMAGE_POINTS;
 			}
 
 			puntuation = puntuation > 100 ? 100 : puntuation;
@@ -111,7 +118,7 @@ public class AdvertServiceImpl implements AdvertService {
 
 		for (Advert p : advertList) {
 
-			if (p.getPoints() >= 40) {
+			if (p.getPoints() >= IRRELEVANT_POINTS) {
 				AdvertUserDAO userAdvert = new AdvertUserDAO(p.getId(), p.getDescription(), p.getImages());
 				auxList.add(userAdvert);
 
@@ -126,7 +133,6 @@ public class AdvertServiceImpl implements AdvertService {
 	public void defaultValues() {
 
 		List<String> advertList1 = new ArrayList<String>();
-//		advertList1.add("http://www.idealista.com/pictures/2.jpg");
 		Advert piso1 = new Advert(1, "Este piso es una ganga, compra, compra, COMPRA!!!!!", advertList1, 0,
 				Date.valueOf("2018-03-25"));
 
